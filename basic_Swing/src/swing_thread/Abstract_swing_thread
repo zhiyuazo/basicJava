@@ -1,0 +1,28 @@
+
+
+Three kind Threads:
+
+no.1 Init-thread(Thread-end when create and display completed): 
+	 a. create  container(JFrame) or JButton..etc's components
+	 b. display container(JFrame) or JButton..etc's components
+	 
+no.2 Event-dispatch-thread
+	a. all action relate with Event (button.addActionListener)
+	b. the thread is single-thread because(JTextFiled,JButton) are not safe between thread.
+	c. (JTextFiled,JButton) may invoked by a lot of thread to invoke thread-problem
+	d. so , design the Event-dispatch-thread as a single-thread
+
+no.3 long-time thread 
+	a. access database
+	b. file copy
+	c. connection to network
+	d. etc
+	e. User will feel the UI was stuck , so those actions will be placed in long-time-thread
+
+
+tips:
+	create/display job also should be handled by Event-dispatch-thread
+	
+ 
+
+ 
